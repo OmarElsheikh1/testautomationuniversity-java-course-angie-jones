@@ -20,13 +20,13 @@ public class LotteryTicket {
     // Generate 6 random numbers between 1 and 6
     public static int[] generateNumbers() {
 
-        int[] ticketNumbers = new int[LENGTH];
+        int[] ticket = new int[LENGTH];
         Random random = new Random();
 
         for (int i = 0; i < LENGTH; i++) {
-            ticketNumbers[i] = random.nextInt(MAX_TICKET_NUMBER) + 1;
+            ticket[i] = random.nextInt(MAX_TICKET_NUMBER) + 1;
         }
-        return ticketNumbers;
+        return ticket;
     }
 
     // Print the numbers in the array
