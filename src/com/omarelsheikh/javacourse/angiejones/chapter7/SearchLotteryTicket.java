@@ -1,5 +1,6 @@
 package com.omarelsheikh.javacourse.angiejones.chapter7;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -7,9 +8,10 @@ import java.util.Random;
  * each lottery ticket contains only unique numbers.
  * <p>
  * Details:
- * - The ticket currently generates 6 random numbers.
+ * - The ticket currently generates 6 random numbers between 1 and 100.
  * - Modify the logic so that no duplicate numbers appear in the ticket.
- * - Each number should be unique and within the allowed range (e.g., 1 to 6).
+ * - Each number should be unique and within the allowed range.
+ * - The numbers are sorted before printing for easier readability.
  */
 public class SearchLotteryTicket {
     public static final int LENGTH = 6;
@@ -17,7 +19,11 @@ public class SearchLotteryTicket {
 
     public static void main(String[] args) {
 
+        // Generate ticket numbers
         int[] ticketNumbers = generateNumbers();
+        // Sort the numbers before printing
+        Arrays.sort(ticketNumbers);
+        // Print the  ticket numbers
         printTicketNumbers(ticketNumbers);
     }
 
@@ -67,10 +73,24 @@ public class SearchLotteryTicket {
         return false;
     }
 
+    // Note: Sorting before every binary search is inefficient in real cases.
+    // Typically, you'd sort once, then reuse the sorted array for multiple searches.
+    public static boolean binarySearch(int[] array, int numberToFind) {
+        // Array must be sorted first
+        Arrays.sort(array);
+
+        int index = Arrays.binarySearch(array, numberToFind);
+        if (index >= 0) {
+            return true; // found it
+        } else
+            return false;
+    }
+
     // Print the numbers in the array
     public static void printTicketNumbers(int[] ticketNumbers) {
         for (int i = 0; i < LENGTH; i++) {
             System.out.print(ticketNumbers[i] + " | ");
         }
+        System.out.println(); // newline after printing all numbers
     }
 }
