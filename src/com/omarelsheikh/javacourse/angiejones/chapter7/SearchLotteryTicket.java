@@ -55,11 +55,12 @@ public class SearchLotteryTicket {
         // This is called an enhanced for loop.
         // It iterates through 'array' and
         // each time assigns the current element to 'value'.
-        for (int value : array) {
-            if (value == numberToFind) {
-                return true; // found it
-            }
-        }
+        //
+        for (int value : array) {           // for (int i = 0; i < array.length; i++) {
+            if (value == numberToFind) {    //      if (array[i] == numberToFind) {
+                return true; // found it    //          return true; // found it
+            }                               //      }
+        }                                   // }
 
         // if we've reached this point, then the entire array was searched
         // and the value was not found.
